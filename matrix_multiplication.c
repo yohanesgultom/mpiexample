@@ -55,7 +55,10 @@ int main(int argc , char **argv)
   MPI_Barrier(MPI_COMM_WORLD);
   if(rank == 0)
   t1=MPI_Wtime();
-  for(i = rank; i < X; i = i+size) //divide the task in multiple processes
+  // size = number of process. so each process will only calculate once (one row * one column)
+  for(i = rank; i < X; i = i+size)
+  // divide the task in multiple processes
+  // yohanes: each process[i] will calculate result[i][j] = matrix1.row[i] * matrix1.column[i]
   {
     for(j = 0; j < Y; j++)
     {
