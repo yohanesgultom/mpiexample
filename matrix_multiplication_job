@@ -1,0 +1,11 @@
+#!/bin/bash
+#SBATCH -J matrix_multiplication_job
+#SBATCH -o matrix_multiplication_%j
+#SBATCH -n 16
+#SBATCH -p normal
+#SBATCH -t 00:00:10
+#SBATCH --mail-user=yohanes.gultom@ui.ac.id
+#SBATCH --mail-type=begin
+#SBATCH --mail-type=end
+ibrun ./matrix_multiplication.o
+
